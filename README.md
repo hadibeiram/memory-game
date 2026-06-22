@@ -3,7 +3,7 @@
 A card-matching memory game built for SEG3125 (Analysis and Design of User Interfaces),
 Assignment 3.
 
-Live: https://omarkaaki.me/memory-game/
+Live: https://hadibeiram.github.io/memory-game/
 
 ## How to play
 
