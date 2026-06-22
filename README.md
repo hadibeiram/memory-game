@@ -47,11 +47,14 @@ The game logic — the peek, flipping, matching, timing, and scoring — is writ
 
 ```
 src/
-  App.jsx          screen switching
+  App.jsx          routes between the portfolio, the game, and hold pages
+  Portfolio.jsx    portfolio landing (about, how I work, case studies)
+  GamePage.jsx     wraps the game flow
+  HoldPage.jsx     "coming soon" page for unfinished case studies
   StartScreen.jsx  difficulty and card-set picker
   Game.jsx         board, peek, matching, timer, best score, win screen
   Card.jsx         a single flip card
   data.js          levels, card sets, shuffle
   index.css        all styling
-report/report.html the design report (open and print to PDF)
+report/report.pdf  the Assignment 3 design report
 ```
