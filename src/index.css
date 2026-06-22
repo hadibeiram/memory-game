@@ -510,17 +510,12 @@ button {
   color: var(--ink-soft);
 }
 
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 14px;
-}
-
-.case-card {
+.project-card {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
   text-align: left;
+  width: 100%;
+  margin-top: 14px;
   padding: 0;
   overflow: hidden;
   background: var(--surface);
@@ -530,53 +525,49 @@ button {
   transition: transform 0.12s ease, border-color 0.12s ease;
 }
 
-.case-card:hover {
+.project-card:hover {
   transform: translateY(-2px);
   border-color: var(--coral-deep);
 }
 
-.case-card:focus-visible {
+.project-card:focus-visible {
   outline: 3px solid var(--mustard);
   outline-offset: 2px;
 }
 
-.case-band {
+.project-band {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 84px;
+  flex-shrink: 0;
+  width: 130px;
+  background: var(--coral);
 }
 
-.case-emoji {
-  font-size: 38px;
+.project-emoji {
+  font-size: 52px;
 }
 
-.case-body {
+.project-body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 16px 18px 18px;
+  gap: 8px;
+  padding: 22px 24px;
 }
 
-.case-title {
+.project-title {
   font-weight: 600;
-  font-size: 17px;
+  font-size: 20px;
 }
 
-.case-desc {
+.project-desc {
   color: var(--ink-soft);
-  font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
-.case-status {
+.project-status {
   margin-top: 6px;
   font-weight: 600;
-  font-size: 14px;
-  color: var(--ink-soft);
-}
-
-.case-card.live .case-status {
   color: var(--coral-text);
 }
 
@@ -589,41 +580,13 @@ button {
   font-size: 14px;
 }
 
-/* Coming-soon hold page */
-.hold {
-  max-width: 56ch;
-  padding: 40px 0 60px;
-}
-
-.hold-tag {
-  color: var(--coral-text);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 13px;
-  margin: 0 0 8px;
-}
-
-.hold-title {
-  font-size: clamp(28px, 6vw, 40px);
-  font-weight: 600;
-  margin: 0 0 14px;
-}
-
-.hold-text {
-  color: var(--ink-soft);
-  line-height: 1.6;
-  font-size: 16px;
-  margin: 0 0 24px;
-}
-
-.hold-btn {
-  width: auto;
-  padding: 13px 24px;
-}
-
 @media (max-width: 600px) {
-  .case-grid {
-    grid-template-columns: 1fr;
+  .project-card {
+    flex-direction: column;
+  }
+
+  .project-band {
+    width: 100%;
+    height: 92px;
   }
 }

@@ -1,36 +1,23 @@
 import { useEffect, useState } from 'react'
 import Portfolio from './Portfolio'
 import GamePage from './GamePage'
-import HoldPage from './HoldPage'
-
-const comingSoon = {
-  '#service': 'Service booking site',
-  '#ecommerce': 'Online store',
-  '#analytics': 'Analytics dashboard',
-}
 
 function readRoute() {
-  const hash = window.location.hash
-  if (hash === '#game') return { page: 'game' }
-  if (comingSoon[hash]) return { page: 'soon', title: comingSoon[hash] }
-  return { page: 'portfolio' }
+  return window.location.hash === '#game' ? 'game' : 'portfolio'
 }
 
 export default function App() {
-  const [route, setRoute] = useState(readRoute)
+  const [page, setPage] = useState(readRoute)
 
   useEffect(() => {
     const onChange = () => {
-      setRoute(readRoute())
+      setPage(readRoute())
       window.scrollTo(0, 0)
     }
     window.addEventListener('hashchange', onChange)
     return () => window.removeEventListener('hashchange', onChange)
   }, [])
 
-  const goHome = () => { window.location.hash = '' }
-
-  if (route.page === 'game') return <GamePage onBack={goHome} />
-  if (route.page === 'soon') return <HoldPage title={route.title} onBack={goHome} />
+  if (page === 'game') return <GamePage onBack={() => { window.location.hash = '' }} />
   return <Portfolio onNavigate={(hash) => { window.location.hash = hash }} />
 }

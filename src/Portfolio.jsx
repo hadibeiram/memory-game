@@ -1,117 +1,68 @@
-const cases = [
-  {
-    hash: '#service',
-    emoji: '💈',
-    title: 'Service booking site',
-    desc: 'A booking page for a small local business.',
-    status: 'Coming soon',
-    band: '#f4ad2b',
-  },
-  {
-    hash: '#game',
-    emoji: '🧠',
-    title: 'Pairs — memory match game',
-    desc: 'A card-matching memory game with difficulty levels and a memorize peek.',
-    status: 'Play',
-    band: '#e8542f',
-    live: true,
-  },
-  {
-    hash: '#ecommerce',
-    emoji: '🛍️',
-    title: 'Online store',
-    desc: 'A small e-commerce storefront with a cart.',
-    status: 'Coming soon',
-    band: '#1f9e8f',
-  },
-  {
-    hash: '#analytics',
-    emoji: '📊',
-    title: 'Analytics dashboard',
-    desc: 'A dashboard with charts and visual summaries.',
-    status: 'Coming soon',
-    band: '#3a6ea5',
-  },
-]
-
 export default function Portfolio({ onNavigate }) {
   return (
     <div className="app portfolio">
       <header className="header">
         <span className="logo">Hadi Beiram</span>
-        <span className="logo-sub">UI design portfolio</span>
+        <span className="logo-sub">portfolio</span>
       </header>
 
       <section className="hero">
-        <p className="hero-eyebrow">SEG3125 · University of Ottawa</p>
-        <h1 className="hero-title">I build clean, easy-to-use web interfaces.</h1>
+        <p className="hero-eyebrow">Computer Engineering · University of Ottawa</p>
+        <h1 className="hero-title">Hi, I'm Hadi Beiram.</h1>
         <p className="hero-text">
-          I'm a software engineering student learning UI and UX design. This page collects the
-          designs I build through the course, starting with a memory game you can play right now.
+          I'm a computer engineering student from Lebanon, interested in networking and computer
+          systems. This page collects the work I build for my UI design course.
         </p>
       </section>
 
       <section className="pf-section">
         <h2 className="pf-h2">About me</h2>
         <p className="pf-text">
-          I'm a software engineering student at the University of Ottawa. I like turning rough ideas
-          into screens that feel obvious to use, and I spend a lot of my free time building small web
-          projects and games. I care about clear layouts, readable type, and the small details that
-          make a screen easier to read at a glance.
+          I'm a computer engineering student at the University of Ottawa, originally from Lebanon.
+          Most of my focus is on networking and computer systems, and I enjoy building small
+          software projects on the side.
         </p>
       </section>
 
       <section className="pf-section">
         <h2 className="pf-h2">How I work</h2>
         <p className="pf-text">
-          Right now I'm taking SEG3125 (Analysis and Design of User Interfaces), where I'm learning
-          user-centered design, visual communication, and the Gestalt principles, and putting them
-          into practice across a set of projects. My process is simple: figure out who the design is
-          for, sketch a few directions, build a working prototype, then test it and cut whatever gets
-          in the way. I keep the{' '}
-          <a href="https://www.nngroup.com/articles/" target="_blank" rel="noreferrer">
-            Nielsen Norman Group
-          </a>{' '}
-          articles close as a reference.
+          I'm currently taking SEG3125 (Analysis and Design of User Interfaces) as part of my degree.
+          It's my first hands-on experience with UI design, so I'm learning the ideas as I go and
+          putting them into practice through the course. This page is where I collect that work.
         </p>
-        <p className="pf-text">Tools I'm comfortable with: HTML, CSS, JavaScript, React, and Figma.</p>
       </section>
 
       <section className="pf-section">
-        <h2 className="pf-h2">Case studies</h2>
-        <p className="pf-text">
-          Four designs from the course. The memory game is finished — the others are on the way.
-        </p>
-        <div className="case-grid">
-          {cases.map((item) => (
-            <button
-              key={item.hash}
-              className={'case-card' + (item.live ? ' live' : '')}
-              onClick={() => onNavigate(item.hash)}
-              aria-label={item.title + (item.live ? ', play the game' : ', coming soon')}
-            >
-              <span className="case-band" style={{ background: item.band }}>
-                <span className="case-emoji">{item.emoji}</span>
-              </span>
-              <span className="case-body">
-                <span className="case-title">{item.title}</span>
-                <span className="case-desc">{item.desc}</span>
-                <span className="case-status">{item.status} →</span>
-              </span>
-            </button>
-          ))}
-        </div>
+        <h2 className="pf-h2">Project</h2>
+        <button
+          className="project-card"
+          onClick={() => onNavigate('#game')}
+          aria-label="Pairs memory match game, play the game"
+        >
+          <span className="project-band">
+            <span className="project-emoji">🧠</span>
+          </span>
+          <span className="project-body">
+            <span className="project-title">Pairs — memory match game</span>
+            <span className="project-desc">
+              A card-matching memory game with difficulty levels, switchable card sets, and a short
+              memorize peek at the start of each round. Built for SEG3125.
+            </span>
+            <span className="project-status">Play the game →</span>
+          </span>
+        </button>
       </section>
 
       <section className="pf-section">
         <h2 className="pf-h2">Get in touch</h2>
         <p className="pf-text">
+          Based in Ottawa, originally from Lebanon.
+          <br />
           GitHub:{' '}
           <a href="https://github.com/hadibeiram" target="_blank" rel="noreferrer">
             github.com/hadibeiram
           </a>
-          <br />
-          Email: <span className="pf-soft">your.email@uottawa.ca</span>
         </p>
       </section>
 
