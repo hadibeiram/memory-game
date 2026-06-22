@@ -1,9 +1,11 @@
 # Pairs
 
-A card-matching memory game built for SEG3125 (Analysis and Design of User Interfaces),
-Assignment 3.
+A UI design portfolio with a playable card-matching memory game, built for SEG3125
+(Analysis and Design of User Interfaces). The site opens on the portfolio; the game is the
+"Pairs" case study.
 
-Live: https://hadibeiram.github.io/memory-game/
+Live portfolio: https://hadibeiram.github.io/memory-game/
+Play the game: https://hadibeiram.github.io/memory-game/#game
 
 ## How to play
 

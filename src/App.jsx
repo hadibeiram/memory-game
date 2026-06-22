@@ -1,38 +1,36 @@
-import { useState } from 'react'
-import StartScreen from './StartScreen'
-import Game from './Game'
+import { useEffect, useState } from 'react'
+import Portfolio from './Portfolio'
+import GamePage from './GamePage'
+import HoldPage from './HoldPage'
+
+const comingSoon = {
+  '#service': 'Service booking site',
+  '#ecommerce': 'Online store',
+  '#analytics': 'Analytics dashboard',
+}
+
+function readRoute() {
+  const hash = window.location.hash
+  if (hash === '#game') return { page: 'game' }
+  if (comingSoon[hash]) return { page: 'soon', title: comingSoon[hash] }
+  return { page: 'portfolio' }
+}
 
 export default function App() {
-  const [screen, setScreen] = useState('start')
-  const [level, setLevel] = useState('easy')
-  const [deck, setDeck] = useState('animals')
-  const [round, setRound] = useState(0)
+  const [route, setRoute] = useState(readRoute)
 
-  function startGame(chosenLevel, chosenDeck) {
-    setLevel(chosenLevel)
-    setDeck(chosenDeck)
-    setRound(round + 1)
-    setScreen('game')
-  }
+  useEffect(() => {
+    const onChange = () => {
+      setRoute(readRoute())
+      window.scrollTo(0, 0)
+    }
+    window.addEventListener('hashchange', onChange)
+    return () => window.removeEventListener('hashchange', onChange)
+  }, [])
 
-  return (
-    <div className="app">
-      <header className="header">
-        <span className="logo">Pairs</span>
-        <span className="logo-sub">memory match</span>
-      </header>
+  const goHome = () => { window.location.hash = '' }
 
-      {screen === 'start' ? (
-        <StartScreen level={level} deck={deck} onStart={startGame} />
-      ) : (
-        <Game
-          key={level + deck + round}
-          level={level}
-          deck={deck}
-          onPlayAgain={() => setRound(round + 1)}
-          onExit={() => setScreen('start')}
-        />
-      )}
-    </div>
-  )
+  if (route.page === 'game') return <GamePage onBack={goHome} />
+  if (route.page === 'soon') return <HoldPage title={route.title} onBack={goHome} />
+  return <Portfolio onNavigate={(hash) => { window.location.hash = hash }} />
 }
